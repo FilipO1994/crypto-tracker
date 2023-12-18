@@ -12,36 +12,83 @@
 }
 
 body {
-  background-color: var(--main-color);
+  background-color: #afaeac;
   font-family: "Roboto", sans-serif;
-}
-
-header h1 span {
-  color: #66667f;
-}
-
-nav {
-  display: flex;
-  justify-content: center;
-  background-color: var(--nav-background);
-  padding: 1rem;
-}
-
-nav a {
-  margin: 0 1rem;
-  text-decoration: none;
-  color: white;
-  font-weight: bold;
-  transition: color 0.3s;
-}
-nav a:hover {
-  color: #ff8c00;
 }
 
 header {
   margin: 2rem 0;
   text-align: center;
   color: var(--nav-background);
+}
+
+header h1 span {
+  color: #57575a;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--nav-background);
+}
+
+.burger-menu {
+  display: none;
+}
+
+.burger-bar {
+  display: none;
+}
+
+nav a {
+  padding: 1em 1em;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  transition: color 0.5s;
+  transition: background-color 0.5s;
+  text-transform: uppercase;
+}
+nav a:hover {
+  color: #000;
+  background-color: #fff;
+}
+
+.search {
+  position: relative;
+}
+
+.search-input {
+  padding: 1em;
+  width: 200px;
+  border: none;
+  color: #000;
+  font-size: 16px;
+  transform: translateX(0) scale(0);
+  transform-origin: right;
+  transition: transform 0.3s;
+  background-color: #d5d5d5;
+}
+
+.search-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 80px;
+  border: none;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.search-btn:focus,
+.search-input:focus {
+  outline: none;
+}
+
+.active {
+  transform: translateX(-80px) scale(1);
 }
 
 .hero {
@@ -135,6 +182,10 @@ img {
   box-shadow: 10px 10px 20px #000000;
 }
 
+.crypto-card.hidden {
+  display: none;
+}
+
 footer {
   background-color: var(--nav-background);
   color: var(--main-color);
@@ -146,20 +197,94 @@ footer {
   text-align: center;
 }
 
+nav a {
+  margin: 0 10px;
+}
+
+.hero {
+  height: 300px;
+}
+.hero .hero-content h3 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+.hero .hero-content p {
+  font-size: 1em;
+  margin-bottom: 20px;
+}
+
+.about-container {
+  flex-direction: row;
+}
+.about-container img {
+  width: 50%;
+  margin-right: 2rem;
+}
+.about-container .about-text {
+  width: 50%;
+}
+
+.selected-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 2rem;
+}
+
+.crypto-card {
+  width: 15rem;
+  height: 25rem;
+  margin: 0 auto;
+  letter-spacing: 1.5px;
+}
+
 @media screen and (max-width: 768px) {
-  nav a {
-    margin: 0 1rem;
+  .main-nav {
+    display: none;
   }
-  .hero {
-    height: 300px;
+  .burger-bar {
+    display: block;
+    padding: 1rem;
+    font-size: 20px;
+    width: 100%;
+    border: none;
+    background-color: #000;
+    color: #fff;
   }
-  .hero .hero-content h3 {
-    font-size: 1.5em;
-    margin-bottom: 1rem;
+  .visable {
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
   }
-  .hero .hero-content p {
-    font-size: 1em;
-    margin-bottom: 2;
+  .visable .burger-search-input {
+    padding: 1em;
+    width: 200px;
+    border: none;
+    color: #000;
+    font-size: 16px;
+    outline: none;
+    transform-origin: left;
+    transition: transform 0.3s;
+    background-color: #d5d5d5;
+    transform: scale(0);
+    transform: translateX(80px) scale(0);
+  }
+  .visable .burger-search-input.active {
+    transform: translateX(80px) scale(1);
+  }
+  .burger-search-btn {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 80px;
+    height: 50px;
+    border: none;
+    background-color: #fff;
+    cursor: pointer;
+  }
+  .burger-search-btn .search-btn:focus,
+  .burger-search-btn .search-input:focus {
+    outline: none;
   }
   .about-container {
     flex-direction: column-reverse;
@@ -172,60 +297,5 @@ footer {
   .about-container .about-text {
     width: 100%;
     margin-top: 1rem;
-  }
-  .tracker h2 {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 2rem;
-  }
-  .tracker .tracker-items {
-    display: flex;
-    justify-content: center;
-  }
-  .selected-container {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-  .crypto-card {
-    width: 220px;
-    height: 250px;
-  }
-}
-@media screen and (min-width: 576px) {
-  nav a {
-    margin: 0 10px;
-  }
-  .hero {
-    height: 300px;
-  }
-  .hero .hero-content h3 {
-    font-size: 1.5em;
-    margin-bottom: 10px;
-  }
-  .hero .hero-content p {
-    font-size: 1em;
-    margin-bottom: 20px;
-  }
-  .about-container {
-    flex-direction: row;
-  }
-  .about-container img {
-    width: 50%;
-    margin-right: 2rem;
-  }
-  .about-container .about-text {
-    width: 50%;
-  }
-  .selected-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-    gap: 2rem;
-  }
-  .crypto-card {
-    width: 15rem;
-    height: 25rem;
-    margin: 0 auto;
-    letter-spacing: 1.5px;
   }
 }/*# sourceMappingURL=main.css.map */
