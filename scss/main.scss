@@ -5,20 +5,19 @@
 }
 
 :root {
-	--main-color: #cbd5e1;
-	--secondary-color:#1c1917;
-	--text-color: #f1f5f9;
+	--main-color: white;
+	--secondary-color: #1c1917;
 	--nav-background: #000;
 	--hero-overlay: rgba(0, 0, 0, 0.5);
-	
 }
 
 body {
 	background-color: var(--main-color);
 	font-family: 'Roboto', sans-serif;
 }
+
 header h1 span {
-	color: var(--text-color);
+	color: #66667f;
 }
 
 nav {
@@ -47,11 +46,9 @@ header {
 }
 
 .hero {
-	width: 100vw;
 	position: relative;
-	height: 300px;
 	background: url('https://tokeny.pl/wp-content/uploads/2019/07/cryptocurrency.jpg') center/cover no-repeat;
-	color: #fff;
+	color: var(--main-color);
 	text-align: center;
 	display: flex;
 	flex-direction: column;
@@ -76,27 +73,58 @@ header {
 }
 
 section {
-	padding: 1rem 0;
+	padding: 2px 0;
+}
+
+.about {
+	background: linear-gradient(135deg, #1c1917, #76726b);
 }
 
 .about-container {
 	display: flex;
 	flex-direction: column-reverse;
 	margin: 0 1rem;
+	position: relative;
+	padding: 2rem;
+}
 
-	img {
-		width: 100%;
-		max-width: 100%;
+img {
+	height: 300px;
+	margin-bottom: 2rem;
+	margin-top: 1rem;
+}
+
+.about-text {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	letter-spacing: 2px;
+	color: var(--main-color);
+
+	h2 {
 		margin-bottom: 2rem;
-		margin-top: 1rem;
 	}
 
-	.about-text {
+	p {
+		max-width: 80%;
+		text-align: center;
+		min-width: 40%;
+	}
+}
+
+.tracker {
+	background: linear-gradient(135deg, #100f0f, #afaeac);
+	margin: 2px 0 0 0;
+	padding: 2em;
+
+	h2 {
 		display: flex;
-		flex-direction: column;
 		justify-content: center;
-		align-items: center;
+		margin: 2rem 0;
+		color: var(--main-color);
 		letter-spacing: 2px;
+		font-size: 40px;
 	}
 }
 
@@ -105,72 +133,18 @@ section {
 	height: 400px;
 	margin-bottom: 2rem;
 	background-color: var(--secondary-color);
-	color: var(--text-color);
+	color: var(--main-color);
 	border-radius: 10px;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-around;
 	align-items: center;
+	box-shadow: 10px 10px 20px #000000;
 }
 
-@media screen and (min-width: 601px) {
-	nav a {
-		margin: 0 10px;
-	}
-
-	.hero {
-		height: 300px;
-
-		.hero-content {
-			h3 {
-				font-size: 1.5em;
-				margin-bottom: 10px;
-			}
-
-			p {
-				font-size: 1em;
-				margin-bottom: 20px;
-			}
-		}
-	}
-
-	.about-container {
-		flex-direction: row;
-
-		img {
-			width: 50%;
-			margin-right: 2rem;
-		}
-
-		.about-text {
-			width: 50%;
-		}
-	}
-
-	.tracker-container {
-		h2 {
-			display: flex;
-			justify-content: center;
-			margin: 3rem 0;
-		}
-	}
-
-	.selected-container {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-		gap: 2rem;
-	}
-
-	.crypto-card {
-		width: 15rem;
-		height: 25rem;
-		margin: 0 auto;
-		letter-spacing: 1.5px;
-	}
-}
 footer {
 	background-color: var(--nav-background);
-	color: #fff;
+	color: var(--main-color);
 	padding: 2rem 0;
 }
 
@@ -179,10 +153,7 @@ footer {
 	text-align: center;
 }
 
-
-
-// small
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 768px) {
 	nav a {
 		margin: 0 1rem;
 	}
@@ -217,14 +188,15 @@ footer {
 			margin-top: 1rem;
 		}
 	}
-	.tracker-container {
+
+	.tracker {
 		h2 {
 			display: flex;
 			justify-content: center;
 			margin-bottom: 2rem;
 		}
 
-		.tracker {
+		.tracker-items {
 			display: flex;
 			justify-content: center;
 		}
@@ -237,7 +209,55 @@ footer {
 	}
 
 	.crypto-card {
-		width: 200px;
+		width: 220px;
 		height: 250px;
+	}
+}
+
+@media screen and (min-width: 576px) {
+	nav a {
+		margin: 0 10px;
+	}
+
+	.hero {
+		height: 300px;
+
+		.hero-content {
+			h3 {
+				font-size: 1.5em;
+				margin-bottom: 10px;
+			}
+
+			p {
+				font-size: 1em;
+				margin-bottom: 20px;
+			}
+		}
+	}
+
+	.about-container {
+		flex-direction: row;
+
+		img {
+			width: 50%;
+			margin-right: 2rem;
+		}
+
+		.about-text {
+			width: 50%;
+		}
+	}
+
+	.selected-container {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+		gap: 2rem;
+	}
+
+	.crypto-card {
+		width: 15rem;
+		height: 25rem;
+		margin: 0 auto;
+		letter-spacing: 1.5px;
 	}
 }

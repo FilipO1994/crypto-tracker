@@ -1,63 +1,64 @@
 <!DOCTYPE html>
 <html lang="pl">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>crypto tracker</title>
-		<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
-		<link rel="stylesheet" href="css/main.css" />
-	</head>
-	<body>
-		<header>
-			<h1>Crypto <span>Tracker</span></h1>
-		</header>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>crypto tracker</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
+    <header>
+        <h1>Crypto <span>Tracker</span></h1>
+    </header>
 
-		<nav>
-			<a href="#hero">Home</a>
-			<a href="#about">About</a>
-			<a href="#tracker">Tracker</a>
-		</nav>
+    <nav>
+        <a href="#hero">Home</a>
+        <a href="#about">About</a>
+        <a href="#tracker">Tracker</a>
+    </nav>
 
-		<section class="hero-container">
-			<div class="hero">
-				<div class="hero-content">
-					<h3>Welcome to Crypto tracker</h3>
-					<p>Control your portfolio tokens</p>
-				</div>
-			</div>
-		</section>
+    <main>
+        <section class="hero-container">
+            <div class="hero">
+                <div class="hero-content">
+                    <h3>Welcome to Crypto tracker</h3>
+                    <p>Control your portfolio tokens</p>
+                </div>
+            </div>
+        </section>
 
-		<section id="about">
-			<div class="about-container">
-				<img src="./img/crypto-about.svg" alt="unDraw crypto charts" />
-				<div class="about-text">
-					<h2>Web Goal</h2>
-					<p>
-						Crypto Tracker is a simple app I created to keep an eye on the rates of cryptocurrencies in my investment
-						portfolio. It's a convenient way to save time checking daily rates for all the cryptocurrencies I'm
-						interested in.
-					</p>
-				</div>
-			</div>
-		</section>
-		<!-- tracker -->
-		<section id="tracker" class="tracker-container">
-			<h2>Tracker</h2>
-			
+        <section id="about" class="about">
+            <div class="about-container">
+                <img src="./img/crypto-about.svg" alt="unDraw crypto charts" />
+                <div class="about-text">
+                    <h2>Web Goal</h2>
+                    <p>
+                        Crypto Tracker is a simple app I created to keep an eye on the rates of cryptocurrencies in my investment
+                        portfolio. It's a convenient way to save time checking daily rates for all the cryptocurrencies I'm
+                        interested in.
+                    </p>
+                </div>
+                <div class="dollar-images"></div>
+            </div>
+        </section>
 
-			<div class="tracker">
-				<div class="selected-container"></div>
-			</div>
-		</section>
+        <!-- tracker -->
+        <section id="tracker" class="tracker">
+            <h2>Tracker</h2>
+            <div class="tracker-items">
+                <div class="selected-container"></div>
+            </div>
+        </section>
+    </main>
 
-		<footer>
-			
-			<div class="footer-bottom">
-				<p>&copy; 2023 Crypto tracker</p>
-			</div>
-		</footer>
+    <footer>
+        <div class="footer-bottom">
+            <p>&copy; 2023 Crypto tracker</p>
+        </div>
+    </footer>
 
-		<script src="https://kit.fontawesome.com/fb9212626f.js" crossorigin="anonymous"></script>
-		<script type="module" src="app.js"></script>
-	</body>
+    <script src="https://kit.fontawesome.com/fb9212626f.js" crossorigin="anonymous"></script>
+    <script type="module" src="app.js"></script>
+</body>
 </html>
