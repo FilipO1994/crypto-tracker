@@ -58,9 +58,16 @@ function displayCryptocurrencies(data) {
 		}
 	})
 }
-
+// main-nav
 const btn = document.querySelector('.search-btn')
 const input = document.querySelector('.search-input')
+// burger menu opening
+const burgerMenu = document.querySelector('.burger-menu')
+const burgerBar = document.querySelector('.burger-bar')
+// burger menu search
+const burgerSearch = document.querySelector('.burger-search-input')
+const burgerSearchBtn = document.querySelector('.burger-search-btn')
+const burgerInput = document.querySelector('.burger-search-input')
 
 const openSearch = () => {
 	input.classList.toggle('active')
@@ -80,26 +87,40 @@ const searchToken = e => {
 		}
 	})
 }
-// burger menu opening
-const burgerMenu = document.querySelector('.burger-menu')
-const burgerBar = document.querySelector('.burger-bar')
 
 const toggleBurgerMenu = () => {
 	burgerMenu.classList.toggle('visable')
 }
-burgerBar.addEventListener('click', toggleBurgerMenu)
-
-// burger menu search
-const burgerSearch = document.querySelector('.burger-search-input')
-const burgerSearchBtn = document.querySelector('.burger-search-btn')
-const burgerInput = document.querySelector('.burger-search-input')
-
 const toggleBurgerSearch = () => {
-  burgerSearch.classList.toggle('active')
+	burgerSearch.classList.toggle('active')
 }
 
+
+
+burgerBar.addEventListener('click', toggleBurgerMenu)
 btn.addEventListener('click', openSearch)
 input.addEventListener('input', searchToken)
 burgerInput.addEventListener('input', searchToken)
-burgerSearchBtn.addEventListener('click',toggleBurgerSearch)
+burgerSearchBtn.addEventListener('click', toggleBurgerSearch)
+
+// sticky nav main-nav
+
+document.addEventListener('DOMContentLoaded', function () {
+	const nav = document.querySelector('.main-nav')
+	const navOffsetTop = nav.offsetTop
+	
+
+	function handleScroll() {
+		if (window.scrollY >= navOffsetTop) {
+			nav.classList.add('sticky')
+		} else {
+			nav.classList.remove('sticky')
+		}
+	}
+
+	window.addEventListener('scroll', handleScroll)
+})
+
+
+
 fetchData()

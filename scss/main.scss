@@ -15,6 +15,9 @@ body {
 	background-color: #afaeac;
 	font-family: 'Roboto', sans-serif;
 }
+section {
+	padding: 2px 0;
+}
 
 header {
 	margin: 2rem 0;
@@ -42,7 +45,7 @@ nav a {
 	// margin: 0 2rem;
 	padding: 1em 1em;
 	text-decoration: none;
-	color: white;
+	color: var(--main-color);
 	font-weight: bold;
 	transition: color 0.5s;
 	transition: background-color 0.5s;
@@ -50,7 +53,7 @@ nav a {
 
 	&:hover {
 		color: #000;
-		background-color: #fff;
+		background-color: var(--main-color);
 	}
 }
 .search {
@@ -74,26 +77,31 @@ nav a {
 	height: 100%;
 	width: 80px;
 	border: none;
-	background-color: #fff;
+	background-color: var(--main-color);
 	cursor: pointer;
 }
 .search-btn:focus,
 .search-input:focus {
 	outline: none;
 }
-// .search-btn:focus {
-// 	background-color: #c3c2c2;
-// }
-// .search-input:focus {
-// 	background-color: #f0efef;
-// }
+
 .active {
 	transform: translateX(-80px) scale(1);
 }
 
+.sticky {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 1000;
+	background-color: var(--nav-background);
+}
+
+// section hero
+
 .hero {
 	position: relative;
-	background: url('https://tokeny.pl/wp-content/uploads/2019/07/cryptocurrency.jpg') center/cover no-repeat;
+	background: url('../img/cryptotracker-hero.jpg') center/cover no-repeat;
 	color: var(--main-color);
 	text-align: center;
 	display: flex;
@@ -118,9 +126,6 @@ nav a {
 	}
 }
 
-section {
-	padding: 2px 0;
-}
 
 .about {
 	background: linear-gradient(135deg, #1c1917, #76726b);
@@ -264,7 +269,7 @@ nav a {
 		width: 100%;
 		border: none;
 		background-color: #000;
-		color: #fff;
+		color: var(--main-color);
 	}
 
 	.visable {
@@ -288,15 +293,15 @@ nav a {
 			transform: translateX(80px) scale(0);
 
 			&.active {
-				transform: translateX(80px) scale(1);
+				transform: translateX(100px) translateY(-20px) scale(1);
 			}
 		}
 	}
 	.burger-search-btn {
 		position: absolute;
-		// margin: 0 20px;
-		top: 0px;
-		left: 0px;
+
+		top: -20px;
+		left: 20px;
 		width: 80px;
 		height: 50px;
 		border: none;
@@ -307,12 +312,6 @@ nav a {
 		.search-input:focus {
 			outline: none;
 		}
-		// .search-btn:focus {
-		// 	background-color: #c3c2c2;
-		// }
-		// .search-input:focus {
-		// 	background-color: #f0efef;
-		// }
 	}
 
 	.about-container {
