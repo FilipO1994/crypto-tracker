@@ -34,7 +34,7 @@ nav {
 .burger-menu {
 	display: none;
 }
-.burger-bar{
+.burger-bar {
 	display: none;
 }
 
@@ -253,6 +253,10 @@ nav a {
 	.main-nav {
 		display: none;
 	}
+	.burger-menu a:hover {
+		color: #fff;
+		background-color: #000;
+	}
 	.burger-bar {
 		display: block;
 		padding: 1rem;
@@ -276,7 +280,7 @@ nav a {
 			color: #000;
 			font-size: 16px;
 			outline: none;
-			
+
 			transform-origin: left;
 			transition: transform 0.3s;
 			background-color: #d5d5d5;
@@ -286,7 +290,6 @@ nav a {
 			&.active {
 				transform: translateX(80px) scale(1);
 			}
-			
 		}
 	}
 	.burger-search-btn {
@@ -310,7 +313,6 @@ nav a {
 		// .search-input:focus {
 		// 	background-color: #f0efef;
 		// }
-		
 	}
 
 	.about-container {

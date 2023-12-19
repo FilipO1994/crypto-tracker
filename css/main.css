@@ -241,6 +241,10 @@ nav a {
   .main-nav {
     display: none;
   }
+  .burger-menu a:hover {
+    color: #fff;
+    background-color: #000;
+  }
   .burger-bar {
     display: block;
     padding: 1rem;
