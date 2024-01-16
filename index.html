@@ -24,7 +24,7 @@
 				</button>
 			</div>
 		</nav>
-        <button class="burger-bar"><i class="fa-solid fa-bars"></i></button>
+		<button class="burger-bar"><i class="fa-solid fa-bars"></i></button>
 		<nav class="burger-menu">
 			<a href="#hero">Home</a>
 			<a href="#about">About</a>
@@ -70,6 +70,15 @@
 					<div class="selected-container"></div>
 				</div>
 			</section>
+			<!-- gwei scan -->
+
+			<section id="gwei-scan" class="gwei-scan">
+				<h2>current ETH tranasaction fees</h2>
+				
+				<p>Standard <i class="fa-solid fa-gas-pump"></i>:<span class="standard-gas-fee"></span>gwei</p>
+				<p>Fast <i class="fa-solid fa-gas-pump"></i>: <span class="fast-gas-fee"></span>gwei</p>
+				<p>Instant <i class="fa-solid fa-gas-pump"></i>:<span class="instant-gas-fee"></span>gwei</p>
+			</section>
 		</main>
 
 		<footer>
@@ -79,6 +88,7 @@
 		</footer>
 
 		<script src="https://kit.fontawesome.com/fb9212626f.js" crossorigin="anonymous"></script>
+		<script type="module" src="gwei-tracker.js"></script>
 		<script type="module" src="app.js"></script>
 	</body>
 </html>
