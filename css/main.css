@@ -163,8 +163,8 @@ img {
 }
 
 .tracker {
-  background: linear-gradient(135deg, #100f0f, #afaeac);
-  margin: 2px 0 0 0;
+  background: linear-gradient(135deg, #76726b, #969695);
+  margin: 2px 0;
   padding: 2em;
 }
 .tracker h2 {
@@ -245,6 +245,36 @@ nav a {
   letter-spacing: 1.5px;
 }
 
+.gwei-scan {
+  background: linear-gradient(135deg, #747271, #eceae7);
+}
+
+.gwei-scan h2 {
+  font-size: 40px;
+  text-align: center;
+  padding: 2rem;
+  color: #fff;
+}
+
+.gwei-scan-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem;
+  font-size: 2rem;
+}
+
+@media screen and (max-width: 992px) {
+  .gwei-scan-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .gwei-scan-container p {
+    margin: 1rem;
+  }
+}
 @media screen and (max-width: 768px) {
   .main-nav {
     display: none;
