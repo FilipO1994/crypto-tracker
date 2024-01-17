@@ -17,7 +17,6 @@ function fetchGasPrices() {
 		.then(data => {
 			if (data.status === '1') {
 				const { SafeGasPrice, ProposeGasPrice, FastGasPrice } = data.result
-                console.log(SafeGasPrice);
 
 				standardElement.textContent = SafeGasPrice
 				fastElement.textContent = ProposeGasPrice
@@ -26,11 +25,6 @@ function fetchGasPrices() {
 				if (isAlertActive) {
 					checkAlertCondition(SafeGasPrice)
 				}
-
-				// Sprawdzaj warunek co 3 sekundy
-				setInterval(() => {
-					checkAlertCondition(SafeGasPrice)
-				}, 3000)
 			} else {
 				console.error('Błąd pobierania danych:', data.message)
 			}
@@ -39,20 +33,24 @@ function fetchGasPrices() {
 }
 
 function checkAlertCondition(gasPrice) {
-	if (Number(gasPrice) < alertGasNumberInput) {
+    if (Number(gasPrice) < alertGasNumberInput){
+        isAlertActive = true
+    }
+	if (Number(gasPrice) < alertGasNumberInput && isAlertActive === true)  {
 		startAlert()
+        isAlertActive = false
 	}
 }
 
 function setAlertGasNumber() {
 	const gasAmountInput = document.getElementById('gasAmountInput')
-	if (gasAmountInput) {
+	
 		alertGasNumberInput = parseFloat(gasAmountInput.value)
 		isAlertActive = true
 		setTimeout(() => {
 			isAlertActive = false
 		}, 16000)
-	}
+	
 }
 
 function startAlert() {
@@ -72,4 +70,4 @@ setButton.addEventListener('click', setAlertGasNumber)
 stopAlert.addEventListener('click', stopAudio)
 
 fetchGasPrices()
-setInterval(fetchGasPrices, 3000);
+setInterval(fetchGasPrices, 3000)
