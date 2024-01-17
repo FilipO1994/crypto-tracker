@@ -33,24 +33,23 @@ function fetchGasPrices() {
 }
 
 function checkAlertCondition(gasPrice) {
-    if (Number(gasPrice) < alertGasNumberInput){
-        isAlertActive = true
-    }
-	if (Number(gasPrice) < alertGasNumberInput && isAlertActive === true)  {
+	if (Number(gasPrice) < alertGasNumberInput) {
+		isAlertActive = true
+	}
+	if (Number(gasPrice) < alertGasNumberInput && isAlertActive === true) {
 		startAlert()
-        isAlertActive = false
+		isAlertActive = false
 	}
 }
 
 function setAlertGasNumber() {
 	const gasAmountInput = document.getElementById('gasAmountInput')
-	
-		alertGasNumberInput = parseFloat(gasAmountInput.value)
-		isAlertActive = true
-		setTimeout(() => {
-			isAlertActive = false
-		}, 16000)
-	
+
+	alertGasNumberInput = parseFloat(gasAmountInput.value)
+	isAlertActive = true
+	setTimeout(() => {
+		isAlertActive = false
+	}, 16000)
 }
 
 function startAlert() {

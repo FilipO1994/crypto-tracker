@@ -262,6 +262,33 @@ nav a {
   font-size: 2rem;
 }
 
+.alert-notification .alert-notification-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.alert-notification .alert-notification-form input {
+  margin: 1rem;
+  padding: 1rem;
+  border-radius: 20px;
+}
+.alert-notification .alert-notification-form button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 2em;
+}
+.alert-notification .alert-notification-form #setButton {
+  color: #1f944a;
+  margin-right: 3em;
+}
+.alert-notification .alert-notification-form #stopAlert {
+  color: #ea2a2a;
+}
+.alert-notification h3 {
+  text-align: center;
+}
+
 @media screen and (max-width: 992px) {
   .gwei-scan-container {
     flex-direction: column;
