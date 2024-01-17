@@ -5,23 +5,9 @@ const instantElement = document.getElementsByClassName('instant-gas-fee')[0]
 const setButton = document.getElementById('setButton')
 const stopAlert = document.getElementById('stopAlert')
 
-let alertGasNumberInput
+let alertGasNumberInput = 0
 let isAlertActive = false
 let audio
-
-function setAlertGasNumber() {
-	if (!isAlertActive) {
-		const gasAmountInput = document.getElementById('gasAmountInput')
-		if (gasAmountInput) {
-			alertGasNumberInput = gasAmountInput.value
-			startAlert()
-			isAlertActive = true
-			setTimeout(() => {
-				isAlertActive = false
-			}, 16000)
-		}
-	}
-}
 
 function fetchGasPrices() {
 	const apiUrl = `https://api.etherscan.io/api?module=gastracker&action=gasoracle&apikey=${apiKey}`
@@ -31,14 +17,20 @@ function fetchGasPrices() {
 		.then(data => {
 			if (data.status === '1') {
 				const { SafeGasPrice, ProposeGasPrice, FastGasPrice } = data.result
+                console.log(SafeGasPrice);
 
 				standardElement.textContent = SafeGasPrice
 				fastElement.textContent = ProposeGasPrice
 				instantElement.textContent = FastGasPrice
 
-				if (alertGasNumberInput && SafeGasPrice < alertGasNumberInput) {
-					startAlert()
+				if (isAlertActive) {
+					checkAlertCondition(SafeGasPrice)
 				}
+
+				// Sprawdzaj warunek co 3 sekundy
+				setInterval(() => {
+					checkAlertCondition(SafeGasPrice)
+				}, 3000)
 			} else {
 				console.error('Błąd pobierania danych:', data.message)
 			}
@@ -46,15 +38,30 @@ function fetchGasPrices() {
 		.catch(error => console.error('Błąd pobierania danych:', error))
 }
 
+function checkAlertCondition(gasPrice) {
+	if (Number(gasPrice) < alertGasNumberInput) {
+		startAlert()
+	}
+}
+
+function setAlertGasNumber() {
+	const gasAmountInput = document.getElementById('gasAmountInput')
+	if (gasAmountInput) {
+		alertGasNumberInput = parseFloat(gasAmountInput.value)
+		isAlertActive = true
+		setTimeout(() => {
+			isAlertActive = false
+		}, 16000)
+	}
+}
+
 function startAlert() {
 	audio = new Audio('audio/alert.wav')
 	audio.play()
-	stopAlert.addEventListener('click', stopAudio)
 }
 
 function stopAudio() {
-	alertGasNumberInput = 0
-    isAlertActive = false
+	isAlertActive = false
 	if (audio) {
 		audio.pause()
 		audio.currentTime = 0
@@ -62,6 +69,7 @@ function stopAudio() {
 }
 
 setButton.addEventListener('click', setAlertGasNumber)
+stopAlert.addEventListener('click', stopAudio)
 
 fetchGasPrices()
-setInterval(fetchGasPrices, 3000)
+setInterval(fetchGasPrices, 3000);
