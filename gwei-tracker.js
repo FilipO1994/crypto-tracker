@@ -3,13 +3,23 @@ const standardElement = document.getElementsByClassName('standard-gas-fee')[0]
 const fastElement = document.getElementsByClassName('fast-gas-fee')[0]
 const instantElement = document.getElementsByClassName('instant-gas-fee')[0]
 const setButton = document.getElementById('setButton')
+const stopAlert = document.getElementById('stopAlert')
 
 let alertGasNumberInput
+let isAlertActive = false
+let audio
 
 function setAlertGasNumber() {
-	const gasAmountInput = document.getElementById('gasAmountInput')
-	if (gasAmountInput) {
-		alertGasNumberInput = gasAmountInput.value
+	if (!isAlertActive) {
+		const gasAmountInput = document.getElementById('gasAmountInput')
+		if (gasAmountInput) {
+			alertGasNumberInput = gasAmountInput.value
+			startAlert()
+			isAlertActive = true
+			setTimeout(() => {
+				isAlertActive = false
+			}, 16000)
+		}
 	}
 }
 
@@ -37,8 +47,18 @@ function fetchGasPrices() {
 }
 
 function startAlert() {
-	const audio = new Audio('audio/alert.wav')
+	audio = new Audio('audio/alert.wav')
 	audio.play()
+	stopAlert.addEventListener('click', stopAudio)
+}
+
+function stopAudio() {
+	alertGasNumberInput = 0
+    isAlertActive = false
+	if (audio) {
+		audio.pause()
+		audio.currentTime = 0
+	}
 }
 
 setButton.addEventListener('click', setAlertGasNumber)
