@@ -277,10 +277,10 @@ nav a {
   background-color: transparent;
   cursor: pointer;
   font-size: 2em;
+  margin: 1em;
 }
 .alert-notification .alert-notification-form #setButton {
   color: #1f944a;
-  margin-right: 3em;
 }
 .alert-notification .alert-notification-form #stopAlert {
   color: #ea2a2a;
@@ -362,5 +362,9 @@ nav a {
   .about-container .about-text {
     width: 100%;
     margin-top: 1rem;
+  }
+  .alert-notification .alert-notification-form {
+    flex-direction: column;
+    margin: 0 auto;
   }
 }/*# sourceMappingURL=main.css.map */

@@ -33,10 +33,10 @@ function fetchGasPrices() {
 }
 
 function checkAlertCondition(gasPrice) {
-	if (Number(gasPrice) < alertGasNumberInput) {
+	if (Number(gasPrice) <= alertGasNumberInput) {
 		isAlertActive = true
 	}
-	if (Number(gasPrice) < alertGasNumberInput && isAlertActive === true) {
+	if (Number(gasPrice) <= alertGasNumberInput && isAlertActive === true) {
 		startAlert()
 		isAlertActive = false
 	}
